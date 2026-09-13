@@ -1,0 +1,7 @@
+synthetic_upazila_slug,official_adm3_name,official_adm3_pcode,official_adm2_name,official_adm2_pcode,note
+ukhiya,Ukhia,BD20220094,Cox's Bazar,BD2022,"name mismatch: synthetic slug ""ukhiya"" vs official ""Ukhia"" -- this is exactly why the join below uses P-codes not names"
+teknaf,Teknaf,BD20220090,Cox's Bazar,BD2022,
+coxs_bazar_sadar,Coxs Bazar Sadar,BD20220024,Cox's Bazar,BD2022,
+ramu,Ramu,BD20220066,Cox's Bazar,BD2022,
+chakaria,Chakaria,BD20220016,Cox's Bazar,BD2022,
+naikhongchhari,Naikkhongchhari,BD20030073,Bandarban,BD2003,"name mismatch: synthetic slug ""naikhongchhari"" (one k) vs official ""Naikkhongchhari"" (two ks)"
