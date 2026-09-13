@@ -15,6 +15,12 @@ account's other repos.
 **Synthetic / public data only** — no real beneficiary, camp-resident, or
 displaced-population data is used anywhere in this repo.
 
+## Contents
+
+- `forms/` — the multi-sector rapid site assessment XLSForm (Kobo/ODK) — see `forms/README.md`
+- `data/` — synthetic site-assessment dataset produced by the form
+- `scripts/` — form-build and synthetic-data-generation scripts
+
 ## Roadmap
 
 See `docs/ROADMAP.md` for the phase-by-phase build plan.
