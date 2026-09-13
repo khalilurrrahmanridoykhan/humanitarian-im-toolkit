@@ -3,3 +3,4 @@ openpyxl>=3.1.0
 geopandas>=1.0.0
 matplotlib>=3.9.0
 pandas>=2.2.0
+shapely>=2.0.0
