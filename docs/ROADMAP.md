@@ -33,7 +33,9 @@ Bangladesh Common Operational Dataset boundaries and P-codes (from HDX)
 joined to the Phase R1/R2 data at Upazila/Union level, producing a
 needs/severity choropleth in QGIS.
 - **Done when:** a QGIS project that joins cleanly on official P-codes, no
-  manual name-matching.
+  manual name-matching. ✅ Done (tag `phase-r3`) — real HDX COD-AB boundaries,
+  joined on `adm3_pcode`; the crosswalk documents two real name mismatches
+  that a name-based join would have hit.
 
 ## Phase R4 — Rapid mapping
 Building and road tracing from satellite imagery (JOSM or the iD editor) for
