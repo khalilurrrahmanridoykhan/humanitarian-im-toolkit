@@ -53,6 +53,10 @@ assessment data and a fictional partner/activity list, following standard
 cluster-coordination dashboard conventions (site, sector, partner, status;
 map + table views).
 - **Done when:** a public dashboard matching a real 4W/5W template structure.
+  ✅ Done (tag `phase-r5`) — Streamlit app, launched and driven with a
+  headless-browser screenshot check (default + filtered views, both
+  confirmed rendering correctly); going live on a public URL is optional and
+  left to the user, same as the account-gated steps in earlier phases.
 
 ## Phase R6 — Integration & documentation
 Connect this toolkit to `geohealth-risk-mapping` as an optional

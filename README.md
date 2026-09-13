@@ -20,7 +20,8 @@ displaced-population data is used anywhere in this repo.
 - `forms/` — the multi-sector rapid site assessment XLSForm (Kobo/ODK + Survey123) — see `forms/README.md`
 - `data/` — synthetic site-assessment dataset, real HDX administrative boundaries, and the P-code join/choropleth — see `data/README.md`
 - `rapid_mapping/` — task grid + QA validation over a real OpenStreetMap extract — see `rapid_mapping/README.md`
-- `scripts/` — all build/join/QA scripts, each reproducible from source
+- `dashboard/` — a 4W/5W Streamlit dashboard over the synthetic data — see `dashboard/README.md`
+- `scripts/` — all build/join/QA/data-generation scripts, each reproducible from source
 
 ## Roadmap
 
