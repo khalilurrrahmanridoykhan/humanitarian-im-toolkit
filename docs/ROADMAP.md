@@ -63,3 +63,12 @@ Connect this toolkit to `geohealth-risk-mapping` as an optional
 population/needs overlay on the hazard layers (a documented join path, no
 code coupling required), and finish end-to-end documentation for the repo.
 - **Done when:** the join path is documented and demoable end-to-end.
+  ✅ Done (tag `phase-r6`) — checked `geohealth-risk-mapping`'s actual state
+  first (its risk-score phase, H10, doesn't exist yet, and its one real
+  zonal-stats file keys by name not P-code); documented the join contract
+  and a name-vs-P-code recommendation in `docs/geohealth-integration.md`,
+  and demonstrated the join mechanism end-to-end against a clearly-labeled
+  placeholder hazard table. `RESULTS.md` added, summarizing real numbers
+  across all 6 phases.
+
+**All phases complete.**
