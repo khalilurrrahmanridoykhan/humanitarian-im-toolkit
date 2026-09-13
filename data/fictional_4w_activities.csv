@@ -1,0 +1,37 @@
+activity_id,partner_org,sector,site_id,site_name,upazila,district,status,start_date
+ACT-001,Shelter First Initiative,shelter,SITE-001,Naikhongchhari Site 1,naikhongchhari,bandarban,ongoing,2026-07-21
+ACT-002,Frontline Health Partners,nutrition,SITE-001,Naikhongchhari Site 1,naikhongchhari,bandarban,ongoing,2026-09-04
+ACT-003,Harvest Relief Initiative,nutrition,SITE-002,Coxs Bazar Sadar Site 2,coxs_bazar_sadar,coxs_bazar,ongoing,2026-09-07
+ACT-004,Unity Field Partners,food_security,SITE-002,Coxs Bazar Sadar Site 2,coxs_bazar_sadar,coxs_bazar,ongoing,2026-07-14
+ACT-005,Unity Field Partners,food_security,SITE-003,Teknaf Site 3,teknaf,coxs_bazar,ongoing,2026-02-18
+ACT-006,Frontline Health Partners,health,SITE-003,Teknaf Site 3,teknaf,coxs_bazar,ongoing,2026-02-08
+ACT-007,Horizon Aid Collective,livelihoods,SITE-004,Teknaf Site 4,teknaf,coxs_bazar,completed,2026-01-08
+ACT-008,Unity Field Partners,food_security,SITE-004,Teknaf Site 4,teknaf,coxs_bazar,ongoing,2026-05-14
+ACT-009,Unity Field Partners,food_security,SITE-005,Naikhongchhari Site 5,naikhongchhari,bandarban,ongoing,2026-05-18
+ACT-010,Horizon Aid Collective,health,SITE-005,Naikhongchhari Site 5,naikhongchhari,bandarban,ongoing,2026-04-12
+ACT-011,Community Response Alliance,protection,SITE-006,Ukhiya Site 6,ukhiya,coxs_bazar,ongoing,2026-01-20
+ACT-012,Bright Path Learning Trust,education,SITE-006,Ukhiya Site 6,ukhiya,coxs_bazar,completed,2026-09-14
+ACT-013,Community Response Alliance,livelihoods,SITE-007,Coxs Bazar Sadar Site 7,coxs_bazar_sadar,coxs_bazar,completed,2026-08-12
+ACT-014,Harvest Relief Initiative,nutrition,SITE-007,Coxs Bazar Sadar Site 7,coxs_bazar_sadar,coxs_bazar,ongoing,2026-03-23
+ACT-015,Bay Area Humanitarian Trust,wash,SITE-008,Teknaf Site 8,teknaf,coxs_bazar,ongoing,2026-05-17
+ACT-016,Shelter First Initiative,shelter,SITE-008,Teknaf Site 8,teknaf,coxs_bazar,planned,2026-08-10
+ACT-017,Riverside Relief Network,shelter,SITE-009,Ramu Site 9,ramu,coxs_bazar,ongoing,2026-09-14
+ACT-018,Bright Path Learning Trust,education,SITE-009,Ramu Site 9,ramu,coxs_bazar,planned,2026-03-16
+ACT-019,Clearwater Response Group,wash,SITE-010,Ramu Site 10,ramu,coxs_bazar,ongoing,2026-02-25
+ACT-020,Unity Field Partners,education,SITE-010,Ramu Site 10,ramu,coxs_bazar,planned,2026-06-20
+ACT-021,Unity Field Partners,education,SITE-011,Coxs Bazar Sadar Site 11,coxs_bazar_sadar,coxs_bazar,completed,2026-02-27
+ACT-022,Unity Field Partners,food_security,SITE-011,Coxs Bazar Sadar Site 11,coxs_bazar_sadar,coxs_bazar,planned,2026-08-23
+ACT-023,Horizon Aid Collective,livelihoods,SITE-012,Naikhongchhari Site 12,naikhongchhari,bandarban,ongoing,2026-05-21
+ACT-024,Harvest Relief Initiative,food_security,SITE-012,Naikhongchhari Site 12,naikhongchhari,bandarban,planned,2026-07-22
+ACT-025,Clearwater Response Group,wash,SITE-013,Chakaria Site 13,chakaria,coxs_bazar,ongoing,2026-08-12
+ACT-026,Riverside Relief Network,shelter,SITE-013,Chakaria Site 13,chakaria,coxs_bazar,ongoing,2026-08-02
+ACT-027,Unity Field Partners,food_security,SITE-014,Ramu Site 14,ramu,coxs_bazar,planned,2026-03-24
+ACT-028,Horizon Aid Collective,health,SITE-014,Ramu Site 14,ramu,coxs_bazar,completed,2026-07-28
+ACT-029,Harvest Relief Initiative,nutrition,SITE-015,Coxs Bazar Sadar Site 15,coxs_bazar_sadar,coxs_bazar,ongoing,2026-03-15
+ACT-030,Harvest Relief Initiative,food_security,SITE-015,Coxs Bazar Sadar Site 15,coxs_bazar_sadar,coxs_bazar,planned,2026-03-27
+ACT-031,Community Response Alliance,livelihoods,SITE-016,Chakaria Site 16,chakaria,coxs_bazar,planned,2026-07-12
+ACT-032,Harvest Relief Initiative,nutrition,SITE-016,Chakaria Site 16,chakaria,coxs_bazar,ongoing,2026-03-03
+ACT-033,Riverside Relief Network,shelter,SITE-017,Naikhongchhari Site 17,naikhongchhari,bandarban,ongoing,2026-04-22
+ACT-034,Frontline Health Partners,nutrition,SITE-017,Naikhongchhari Site 17,naikhongchhari,bandarban,ongoing,2026-08-27
+ACT-035,Bay Area Humanitarian Trust,wash,SITE-018,Chakaria Site 18,chakaria,coxs_bazar,planned,2026-05-01
+ACT-036,Frontline Health Partners,nutrition,SITE-018,Chakaria Site 18,chakaria,coxs_bazar,completed,2026-09-12
