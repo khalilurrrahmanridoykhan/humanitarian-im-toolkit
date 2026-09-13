@@ -1,0 +1,16 @@
+{
+"type": "FeatureCollection",
+"name": "task_grid",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "task_id": 1, "status": "MAPPED" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 92.15, 21.199 ], [ 92.15, 21.2 ], [ 92.149, 21.2 ], [ 92.149, 21.199 ], [ 92.15, 21.199 ] ] ] } },
+{ "type": "Feature", "properties": { "task_id": 2, "status": "MAPPED" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 92.151, 21.199 ], [ 92.151, 21.2 ], [ 92.15, 21.2 ], [ 92.15, 21.199 ], [ 92.151, 21.199 ] ] ] } },
+{ "type": "Feature", "properties": { "task_id": 3, "status": "MAPPED" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 92.152, 21.199 ], [ 92.152, 21.2 ], [ 92.151, 21.2 ], [ 92.151, 21.199 ], [ 92.152, 21.199 ] ] ] } },
+{ "type": "Feature", "properties": { "task_id": 4, "status": "MAPPED" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 92.15, 21.2 ], [ 92.15, 21.201 ], [ 92.149, 21.201 ], [ 92.149, 21.2 ], [ 92.15, 21.2 ] ] ] } },
+{ "type": "Feature", "properties": { "task_id": 5, "status": "MAPPED" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 92.151, 21.2 ], [ 92.151, 21.201 ], [ 92.15, 21.201 ], [ 92.15, 21.2 ], [ 92.151, 21.2 ] ] ] } },
+{ "type": "Feature", "properties": { "task_id": 6, "status": "MAPPED" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 92.152, 21.2 ], [ 92.152, 21.201 ], [ 92.151, 21.201 ], [ 92.151, 21.2 ], [ 92.152, 21.2 ] ] ] } },
+{ "type": "Feature", "properties": { "task_id": 7, "status": "MAPPED" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 92.15, 21.201 ], [ 92.15, 21.202 ], [ 92.149, 21.202 ], [ 92.149, 21.201 ], [ 92.15, 21.201 ] ] ] } },
+{ "type": "Feature", "properties": { "task_id": 8, "status": "MAPPED" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 92.151, 21.201 ], [ 92.151, 21.202 ], [ 92.15, 21.202 ], [ 92.15, 21.201 ], [ 92.151, 21.201 ] ] ] } },
+{ "type": "Feature", "properties": { "task_id": 9, "status": "MAPPED" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 92.152, 21.201 ], [ 92.152, 21.202 ], [ 92.151, 21.202 ], [ 92.151, 21.201 ], [ 92.152, 21.201 ] ] ] } }
+]
+}

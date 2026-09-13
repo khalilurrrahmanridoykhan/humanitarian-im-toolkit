@@ -38,11 +38,14 @@ needs/severity choropleth in QGIS.
   that a name-based join would have hit.
 
 ## Phase R4 — Rapid mapping
-Building and road tracing from satellite imagery (JOSM or the iD editor) for
-a disaster-affected area of interest, following HOT Tasking Manager
-conventions (task selection, validation rules, QA).
+Manual imagery tracing (JOSM/iD) is a hands-on GUI skill that stays with
+whoever does it, same as Kobo/ArcGIS in earlier phases. What's scriptable —
+and what a real HOT campaign depends on just as much — is the task-grid
+split and the QA/validation pass, run against a real OSM extract.
 - **Done when:** a documented, reproducible mapping session with
-  before/after imagery and a feature count.
+  before/after imagery and a feature count. ✅ Done (tag `phase-r4`) — HOT
+  Tasking-Manager-style task grid + QA pass over a real, densely-mapped OSM
+  extract (693 buildings, 71 roads) in Ukhiya, Cox's Bazar.
 
 ## Phase R5 — Operational dashboard (4W/5W)
 A "Who's doing What, Where, When" dashboard built from the synthetic
