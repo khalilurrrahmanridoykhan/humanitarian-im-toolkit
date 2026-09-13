@@ -49,3 +49,13 @@ Upload `rapid_assessment_form.xlsx` directly in KoboToolbox
 (`kf.kobotoolbox.org` → New → Upload an XLSForm), or via the Kobo API with a
 personal access token. Deployment isn't automated here since it requires a
 Kobo account.
+
+## Esri Survey123 version
+
+`rapid_assessment_form_survey123.xlsx` is the same instrument adapted to the
+Survey123 XLSForm dialect (built by
+`scripts/build_xlsform_survey123.py`). See `kobo-vs-survey123.md` for the
+concrete, documented differences between the two dialects and why each one
+exists. Like the Kobo form, deployment (importing into Survey123 Connect,
+publishing to ArcGIS Online) isn't automated here since it requires an
+ArcGIS account.

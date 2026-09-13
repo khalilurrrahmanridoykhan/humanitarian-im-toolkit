@@ -5,18 +5,27 @@ Same working discipline as this account's other projects: one branch → one PR
 always demoable. **Synthetic / public data only** at every phase — no real
 Rohingya, camp-resident, or other real beneficiary/household-level data.
 
+No live account, deployment, or manual data collection is required in any
+phase — every phase is a self-contained repo artifact built against
+scripted, synthetic data. Where a phase's real-world equivalent normally
+involves an external account (KoboToolbox, ArcGIS Online), this repo
+produces the correctly-formatted deliverable for that platform (validated
+where the platform's own tooling allows local validation) without actually
+deploying to it.
+
 ## Phase R1 — Multi-sector rapid assessment form (Kobo/ODK)
 Multi-module XLSForm (shelter, WASH, health, protection) with skip logic,
-GPS point + geoshape (site/camp boundary) capture, Bangla/English labels.
-Deployed on KoboToolbox against a synthetic site dataset.
-- **Done when:** live Kobo form + exported dataset + a README documenting
-  the instrument design.
+GPS point + geoshape (site/camp boundary) capture, Bangla/English labels,
+validated with `xls2xform`, against a scripted synthetic site dataset.
+- **Done when:** validated XLSForm + synthetic dataset + a README documenting
+  the instrument design. ✅ Done (tag `phase-r1`).
 
 ## Phase R2 — Esri ArcGIS Field Maps / Survey123 parity
-The same instrument rebuilt in Survey123, published to ArcGIS Online, with
-data collected via Field Maps (mobile, offline-capable) — demonstrating both
-the Kobo/ODK and Esri stacks side by side.
-- **Done when:** shareable ArcGIS Online map + a Kobo-vs-Field-Maps
+The same instrument adapted to the Survey123 XLSForm dialect, with a written
+comparison note covering the concrete differences from the Kobo/ODK version
+(question types, appearance hints, media handling) — demonstrating fluency
+in both stacks without requiring an ArcGIS Online account.
+- **Done when:** a Survey123-compatible XLSForm + a Kobo-vs-Survey123
   comparison note.
 
 ## Phase R3 — Administrative-boundary (COD/P-code) integration
