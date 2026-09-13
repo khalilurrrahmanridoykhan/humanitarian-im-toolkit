@@ -23,6 +23,8 @@ displaced-population data is used anywhere in this repo.
 - `dashboard/` — a 4W/5W Streamlit dashboard over the synthetic data — see `dashboard/README.md`
 - `scripts/` — all build/join/QA/data-generation scripts, each reproducible from source
 
-## Roadmap
+## Roadmap and results
 
-See `docs/ROADMAP.md` for the phase-by-phase build plan.
+`docs/ROADMAP.md` — the phase-by-phase build plan (all 6 phases complete).
+`RESULTS.md` — real numbers per phase. `docs/geohealth-integration.md` — the
+documented join path to `geohealth-risk-mapping`'s hazard layers.
