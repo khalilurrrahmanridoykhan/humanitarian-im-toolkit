@@ -116,24 +116,52 @@ def main():
 
 
 def write_qml(path: str):
-    # Minimal QGIS graduated-symbology style for the `needs_score` field,
-    # equal-interval 5-class OrRd ramp matching the PNG render above.
-    qml = """<!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
+    # QGIS graduated-symbology style for the `needs_score` field, equal-
+    # interval 5-class OrRd ramp matching the PNG render above. Each
+    # SimpleFill layer's <Option> wrapper MUST carry type="Map" -- without
+    # it QGIS can't read `color` as a map entry and silently falls back to
+    # a default fill instead of erroring, which is exactly what happened
+    # the first time this file shipped (caught by actually opening it in
+    # QGIS, not by any automated check -- xls2xform-style tools don't
+    # validate .qml).
+    colors = [
+        "255,255,204,255", "254,217,142,255", "254,153,41,255",
+        "217,95,14,255", "153,52,4,255",
+    ]
+    ranges = [
+        ("0 - 20 (low)", 0, 20), ("20 - 40", 20, 40),
+        ("40 - 60 (moderate)", 40, 60), ("60 - 80", 60, 80),
+        ("80 - 100 (severe)", 80, 100),
+    ]
+
+    range_xml = "\n".join(
+        f'      <range label="{label}" lower="{lo}" upper="{hi}" render="true" symbol="{i}"/>'
+        for i, (label, lo, hi) in enumerate(ranges)
+    )
+    symbol_xml = "\n".join(
+        f"""      <symbol type="fill" name="{i}" alpha="1" clip_to_extent="1" force_rhr="0">
+        <layer class="SimpleFill" locked="0" pass="0" enabled="1">
+          <Option type="Map">
+            <Option type="QString" name="color" value="{color}"/>
+            <Option type="QString" name="outline_color" value="35,35,35,255"/>
+            <Option type="QString" name="outline_style" value="solid"/>
+            <Option type="QString" name="outline_width" value="0.26"/>
+            <Option type="QString" name="outline_width_unit" value="MM"/>
+            <Option type="QString" name="style" value="solid"/>
+          </Option>
+        </layer>
+      </symbol>"""
+        for i, color in enumerate(colors)
+    )
+
+    qml = f"""<!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
 <qgis version="3.34" styleCategories="Symbology">
   <renderer-v2 type="graduatedSymbol" attr="needs_score" graduatedMethod="GraduatedColor">
     <ranges>
-      <range label="0 - 20 (low)" lower="0" upper="20" render="true" symbol="0"/>
-      <range label="20 - 40" lower="20" upper="40" render="true" symbol="1"/>
-      <range label="40 - 60 (moderate)" lower="40" upper="60" render="true" symbol="2"/>
-      <range label="60 - 80" lower="60" upper="80" render="true" symbol="3"/>
-      <range label="80 - 100 (severe)" lower="80" upper="100" render="true" symbol="4"/>
+{range_xml}
     </ranges>
     <symbols>
-      <symbol type="fill" name="0"><layer class="SimpleFill"><Option><Option type="QString" name="color" value="255,255,204,255"/><Option type="QString" name="outline_color" value="0,0,0,255"/><Option type="QString" name="outline_width" value="0.26"/></Option></layer></symbol>
-      <symbol type="fill" name="1"><layer class="SimpleFill"><Option><Option type="QString" name="color" value="254,217,142,255"/><Option type="QString" name="outline_color" value="0,0,0,255"/><Option type="QString" name="outline_width" value="0.26"/></Option></layer></symbol>
-      <symbol type="fill" name="2"><layer class="SimpleFill"><Option><Option type="QString" name="color" value="254,153,41,255"/><Option type="QString" name="outline_color" value="0,0,0,255"/><Option type="QString" name="outline_width" value="0.26"/></Option></layer></symbol>
-      <symbol type="fill" name="3"><layer class="SimpleFill"><Option><Option type="QString" name="color" value="217,95,14,255"/><Option type="QString" name="outline_color" value="0,0,0,255"/><Option type="QString" name="outline_width" value="0.26"/></Option></layer></symbol>
-      <symbol type="fill" name="4"><layer class="SimpleFill"><Option><Option type="QString" name="color" value="153,52,4,255"/><Option type="QString" name="outline_color" value="0,0,0,255"/><Option type="QString" name="outline_width" value="0.26"/></Option></layer></symbol>
+{symbol_xml}
     </symbols>
   </renderer-v2>
 </qgis>
