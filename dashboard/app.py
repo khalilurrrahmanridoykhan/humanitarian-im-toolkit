@@ -19,6 +19,8 @@ be spending the identity channel to re-say what the bar's own label shows.
 Run: streamlit run dashboard/app.py
 """
 
+import json
+
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
@@ -28,6 +30,8 @@ st.set_page_config(page_title="4W Dashboard -- Rapid Assessment Sites", layout="
 
 SITES_CSV = "data/synthetic_site_assessments.csv"
 ACTIVITIES_CSV = "data/fictional_4w_activities.csv"
+BOUNDARIES_GEOJSON = "data/cod/bgd_admin3_coxsbazar_subset.geojson"
+CROSSWALK_CSV = "data/upazila_pcode_crosswalk.csv"
 
 # --- Palette (dark mode, validated -- see module docstring) -----------------
 SURFACE = "#1a1a19"        # chart surface (matches secondaryBackgroundColor)
@@ -38,6 +42,7 @@ INK_MUTED = "#898781"
 GRIDLINE = "#2c2c2a"
 
 CATEGORICAL_1 = "#3987e5"  # slot 1, blue -- single-series bar chart color
+CATEGORICAL_2 = "#d95926"  # slot 2, orange -- site markers, contrasts against the blue choropleth fill
 
 # Sequential blue ramp (light -> dark), used for the map's magnitude encoding
 SEQUENTIAL_BLUE = [
@@ -76,10 +81,21 @@ def load_data():
     gps = sites["location/gps_point"].str.split(" ", expand=True)
     sites["lat"] = gps[0].astype(float)
     sites["lon"] = gps[1].astype(float)
-    return sites, activities
+
+    with open(BOUNDARIES_GEOJSON) as f:
+        boundaries = json.load(f)
+    crosswalk = pd.read_csv(CROSSWALK_CSV)
+    # Same P-code join as Phase R3/R6 -- never join upazila boundaries by
+    # name, the crosswalk exists specifically because slugs and official
+    # COD-AB names don't always match (see data/README.md).
+    activities = activities.merge(
+        crosswalk[["synthetic_upazila_slug", "official_adm3_pcode"]],
+        left_on="upazila", right_on="synthetic_upazila_slug", how="left",
+    )
+    return sites, activities, boundaries, crosswalk
 
 
-sites, activities = load_data()
+sites, activities, boundaries_geojson, crosswalk = load_data()
 
 st.markdown(
     """
@@ -137,23 +153,43 @@ with map_col:
         filtered.groupby("site_id").size().rename("activity_count").reset_index()
     )
     map_df = sites.merge(site_activity_counts, on="site_id", how="inner")
+
+    # Upazila-level totals for the choropleth fill -- every real boundary
+    # polygon gets a row (0 if nothing matched the current filters), joined
+    # on P-code so the fill always lands on the right polygon.
+    upazila_totals = (
+        filtered.groupby("official_adm3_pcode").size().rename("activity_count").reset_index()
+    )
+    all_pcodes = crosswalk[["official_adm3_pcode", "official_adm3_name"]].drop_duplicates()
+    choropleth_df = all_pcodes.merge(upazila_totals, on="official_adm3_pcode", how="left")
+    choropleth_df["activity_count"] = choropleth_df["activity_count"].fillna(0)
+
+    fig_map = go.Figure()
+    fig_map.add_trace(go.Choroplethmapbox(
+        geojson=boundaries_geojson, locations=choropleth_df["official_adm3_pcode"],
+        z=choropleth_df["activity_count"], featureidkey="properties.adm3_pcode",
+        colorscale=SEQUENTIAL_BLUE, marker_opacity=0.55, marker_line_width=1.5,
+        marker_line_color=INK_MUTED,
+        text=choropleth_df["official_adm3_name"], hovertemplate="%{text}<br>Activities: %{z}<extra></extra>",
+        colorbar=dict(title="Activities<br>(by upazila)", tickfont=dict(color=INK_SECONDARY), title_font=dict(color=INK_SECONDARY)),
+    ))
     if not map_df.empty:
-        fig_map = px.scatter_mapbox(
-            map_df, lat="lat", lon="lon", size="activity_count", color="activity_count",
-            hover_name="metadata/site_name",
-            hover_data={"lat": False, "lon": False, "location/upazila": True, "activity_count": True},
-            color_continuous_scale=SEQUENTIAL_BLUE, zoom=8.2, height=480,
-            labels={"activity_count": "Activities"},
-        )
-        fig_map.update_layout(
-            mapbox_style="open-street-map",
-            margin=dict(l=0, r=0, t=0, b=0),
-            font=CHART_FONT,
-            coloraxis_colorbar=dict(title="Activities", tickfont=dict(color=INK_SECONDARY), title_font=dict(color=INK_SECONDARY)),
-        )
-        st.plotly_chart(fig_map, use_container_width=True)
-    else:
-        st.info("No activities match the current filters.")
+        fig_map.add_trace(go.Scattermapbox(
+            lat=map_df["lat"], lon=map_df["lon"],
+            mode="markers",
+            marker=dict(size=map_df["activity_count"] * 6 + 10, color=CATEGORICAL_2, opacity=0.9),
+            text=map_df["metadata/site_name"] + "<br>Activities: " + map_df["activity_count"].astype(str),
+            hovertemplate="%{text}<extra></extra>",
+        ))
+    fig_map.update_layout(
+        mapbox=dict(style="open-street-map", zoom=8.2, center=dict(lat=21.3, lon=92.15)),
+        margin=dict(l=0, r=0, t=0, b=0), height=480,
+        font=CHART_FONT, showlegend=False,
+        paper_bgcolor=SURFACE,
+    )
+    st.plotly_chart(fig_map, use_container_width=True)
+    if map_df.empty:
+        st.info("No activities match the current filters -- showing upazila boundaries only.")
 
 with chart_col:
     st.subheader("What: By Sector")
