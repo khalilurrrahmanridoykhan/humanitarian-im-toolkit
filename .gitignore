@@ -4,3 +4,8 @@ __pycache__/
 .DS_Store
 node_modules/
 .env
+
+# Raw video recordings -- meant for LinkedIn/YouTube, not this repo.
+# GitHub hard-rejects any file over 100MB anyway; LFS isn't worth it
+# for a couple of ~350MB one-off recordings.
+video/*.mp4
